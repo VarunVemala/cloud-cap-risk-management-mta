@@ -9,6 +9,7 @@ modules:
   requires:
   - name: cpapp-db
   - name: cpapp-uaa
+  - name: cpapp-app-logs
   provides:
   - name: srv-api
     properties:
@@ -22,6 +23,7 @@ modules:
   requires:
   - name: cpapp-db
   - name: cpapp-uaa
+  - name: cpapp-app-logs
   parameters:
     buildpack: nodejs_buildpack
     memory: 256M
@@ -126,6 +128,11 @@ resources:
     path: ./xs-security.json
     service: xsuaa
     service-plan: application
+- name: cpapp-app-logs
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: application-logs
+    service-plan: lite
 - name: cpapp-destination
   type: org.cloudfoundry.managed-service
   parameters:
