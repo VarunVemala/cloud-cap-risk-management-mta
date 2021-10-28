@@ -106,3 +106,6 @@ dist
 gen/
 *.mtar
 package-lock.json
+dist/
+resources/
+app/*/package-lock.json
