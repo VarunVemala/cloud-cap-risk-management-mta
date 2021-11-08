@@ -10,6 +10,7 @@ modules:
   - name: cpapp-db
   - name: cpapp-uaa
   - name: cpapp-app-logs
+  - name: cpapp-cld-logs
   provides:
   - name: srv-api
     properties:
@@ -24,6 +25,7 @@ modules:
   - name: cpapp-db
   - name: cpapp-uaa
   - name: cpapp-app-logs
+  - name: cpapp-cld-logs
   parameters:
     buildpack: nodejs_buildpack
     memory: 256M
@@ -133,6 +135,11 @@ resources:
   parameters:
     service: application-logs
     service-plan: lite
+- name: cpapp-cld-logs
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: cloud-logging
+    service-plan: standard
 - name: cpapp-destination
   type: org.cloudfoundry.managed-service
   parameters:
